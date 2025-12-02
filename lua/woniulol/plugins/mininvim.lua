@@ -29,6 +29,9 @@ return {
                 }
             })
 
+            -- Auto pairing.
+            require("mini.pairs").setup({})
+
         end,
     },
 }
