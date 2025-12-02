@@ -16,8 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
     {
-        require("woniulol.plugins.telescope"),
         require("woniulol.plugins.colorschemes"),
+        require("woniulol.plugins.telescope"),
         require("woniulol.plugins.treesitter"),
         require("woniulol.plugins.lualine"),
         require("woniulol.plugins.lsp"),
@@ -25,6 +25,7 @@ require("lazy").setup(
         require("woniulol.plugins.todocomments"),
         require("woniulol.plugins.mininvim"),
         require("woniulol.plugins.smearcursor"),
+        require("woniulol.plugins.markview"),
     },
     {
         ui = {border = "bold"},
