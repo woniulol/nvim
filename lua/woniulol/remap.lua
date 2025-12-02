@@ -23,8 +23,12 @@ vim.o.showmode = false
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 
--- Sync clipboard between Os and Neovim.
+-- Sync clipboard between Os and Neovim, ssh and local.
 vim.o.clipboard = "unnamedplus"
+local is_ssh = vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil
+if is_ssh then
+    vim.g.clipboard = 'osc52'
+end
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
