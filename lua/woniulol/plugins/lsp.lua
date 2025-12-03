@@ -18,13 +18,15 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "ty",
+                    -- "ty",
+                    "pyright"
                 }
             })
             require("woniulol.plugins.lsp_config")
 
             vim.lsp.enable("lua_ls")
-            vim.lsp.enable("ty")
+            -- vim.lsp.enable("ty")
+            vim.lsp.enable("pyright")
 
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
@@ -97,13 +99,9 @@ return {
                     source = 'if_many',
                     spacing = 2,
                     format = function(diagnostic)
-                        local diagnostic_message = {
-                            [vim.diagnostic.severity.ERROR] = diagnostic.message,
-                            [vim.diagnostic.severity.WARN] = diagnostic.message,
-                            [vim.diagnostic.severity.INFO] = diagnostic.message,
-                            [vim.diagnostic.severity.HINT] = diagnostic.message,
-                        }
-                        return diagnostic_message[diagnostic.severity]
+                        -- Only show the first line of the diagnostic message to virtual text.
+                        local msg = diagnostic.message:match("^[^\n]+")
+                        return string.format("%s: %s", diagnostic.source or "LSP", msg)
                     end,
                 },
             }
