@@ -5,3 +5,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.hl.on_yank()
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Aviod ':' to trigger a indent in python file",
+    pattern = "python",
+    command = "setlocal indentkeys-=<:>",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Aviod ':' to trigger a indent in python file",
+    pattern = "python",
+    command = "setlocal indentkeys-=<:>",
+})
