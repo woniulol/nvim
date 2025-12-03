@@ -27,10 +27,27 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 4
 
 -- Sync clipboard between Os and Neovim, ssh and local.
+-- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
 vim.o.clipboard = "unnamedplus"
 local is_ssh = vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil
 if is_ssh then
-    vim.g.clipboard = 'osc52'
+    local function paste()
+        return {
+            vim.fn.split(vim.fn.getreg('"'), "\n"),
+            vim.fn.getregtype(""),
+        }
+    end
+    vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+            ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+            ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+        },
+        paste = {
+            ["+"] = paste,
+            ["*"] = paste,
+        },
+    }
 end
 
 -- Enable spell checking from nvim
