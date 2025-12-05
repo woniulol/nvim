@@ -27,6 +27,7 @@ require("lazy").setup(
         require("woniulol.plugins.smearcursor"),
         require("woniulol.plugins.markview"),
         require("woniulol.plugins.gitsigns"),
+        require("woniulol.plugins.lazygit"),
     },
     {
         ui = {border = "bold"},
