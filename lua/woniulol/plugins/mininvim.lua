@@ -3,13 +3,6 @@ return {
         -- Collection of various small independent plugins/modules
         'echasnovski/mini.nvim',
         config = function()
-            -- Better Around/Inside textobjects
-            --
-            -- Examples:
-            --  - va)  - [V]isually select [A]round [)]paren
-            --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-            --  - ci'  - [C]hange [I]nside [']quote
-            require('mini.ai').setup { n_lines = 500 }
 
             -- Add/delete/replace surroundings (brackets, quotes, etc.)
             --
@@ -31,6 +24,16 @@ return {
 
             -- Auto pairing.
             require("mini.pairs").setup({})
+
+            -- Trailing spaces
+            require('mini.trailspace').setup()
+
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = "*",
+                callback = function()
+                    require("mini.trailspace").trim()
+                end,
+            })
 
         end,
     },
