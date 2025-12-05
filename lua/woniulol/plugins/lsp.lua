@@ -17,16 +17,18 @@ return {
             })
             require("mason-tool-installer").setup({
                 ensure_installed = {
-                    "lua_ls",
+                    { "lua_ls", version = "3.15.0" },
                     -- "ty",
-                    "pyright"
+                    -- "pyright",
+                    "basedpyright",
                 }
             })
             require("woniulol.plugins.lsp_config")
 
             vim.lsp.enable("lua_ls")
             -- vim.lsp.enable("ty")
-            vim.lsp.enable("pyright")
+            -- vim.lsp.enable("pyright")
+            vim.lsp.enable("basedpyright")
 
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
@@ -82,6 +84,9 @@ return {
                 end
             })
 
+            vim.keymap.set("n", "grf", function()
+                require("telescope.builtin").diagnostics({ bufnr = nil })
+            end, { desc = "[T]elescope Workspace Diagnostics" })
 
             vim.diagnostic.config {
                 severity_sort = true,
