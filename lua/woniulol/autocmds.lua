@@ -16,3 +16,10 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     command = "setlocal indentkeys-=<:>",
 })
+
+vim.api.nvim_create_autocmd('TermOpen', {
+    group = vim.api.nvim_create_augroup('custom-term-open', { clear = true}),
+    callback = function()
+        vim.o.spell = false -- Disable spell checking when terminal is open.
+    end,
+})

@@ -81,3 +81,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Prevent cursor drop to bottom
 vim.o.scrolloff = 20
+
+-- Shortcut to create a new [s]mall [t]erminal
+vim.keymap.set("n", "<leader>st", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 6)
+    vim.cmd("startinsert")
+end)
