@@ -21,6 +21,7 @@ return {
                     -- "ty",
                     -- "pyright",
                     "basedpyright",
+                    "rust_analyzer",
                 }
             })
             require("woniulol.plugins.lsp_config")
@@ -29,6 +30,7 @@ return {
             -- vim.lsp.enable("ty")
             -- vim.lsp.enable("pyright")
             vim.lsp.enable("basedpyright")
+            vim.lsp.enable("rust_analyzer")
 
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
