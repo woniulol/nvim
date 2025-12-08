@@ -43,6 +43,13 @@ return {
                 treesitter_context = true,
                 which_key = true,
             },
+            highlight_overrides = {
+                all = function(colors)
+                    return {
+                        Visual = { bg = colors.peach, fg = colors.base, style = {} },
+                    }
+                end,
+            },
         },
         specs = {
             {
@@ -55,5 +62,5 @@ return {
                 end,
             },
         },
-    },
+    }
 }
