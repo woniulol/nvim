@@ -47,6 +47,9 @@ return {
                 all = function(colors)
                     return {
                         Visual = { bg = colors.peach, fg = colors.base, style = {} },
+                        LspReferenceText = { bg = "#c2dffe", fg = colors.base },
+                        LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
+                        LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
                     }
                 end,
             },

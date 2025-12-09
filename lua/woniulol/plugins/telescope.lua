@@ -1,14 +1,14 @@
 return {
     {
-        'nvim-telescope/telescope.nvim',
-        tag = 'v0.2.0',
+        "nvim-telescope/telescope.nvim",
+        tag = "v0.2.0",
         dependencies = {
-            'nvim-lua/plenary.nvim',
+            "nvim-lua/plenary.nvim",
             {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                build = 'make',
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
                 cond = function()
-                    return vim.fn.executable 'make' == 1
+                    return vim.fn.executable "make" == 1
                 end,
             }
         },
@@ -18,15 +18,24 @@ return {
                     fzf = {}
                 }
             })
-            require('telescope').load_extension('fzf')
+            require("telescope").load_extension("fzf")
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find all files" })
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-            -- vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-            vim.keymap.set("n", "<leader>fs", builtin.spell_suggest, { desc = "Telescope spell suggest" })
+
+            vim.keymap.set("n", "<leader>d", builtin.diagnostics, { desc = "Telescope [f]ind [d]iagnostics" })
+            vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Telescope [f]ind [h]elp" })
+            vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "Telescope [c]heck [s]pell" })
+            vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Telescope [o]pen [b]uffers" })
+            vim.keymap.set("n", "<leader>of", builtin.find_files, { desc = "Telescope [o]pen [f]iles" })
+            vim.keymap.set("n", "<leader>ok", builtin.keymaps, { desc = "Telescope [o]pen [k]eymaps" })
+            vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
+            vim.keymap.set("n", "<leader>ffb", builtin.current_buffer_fuzzy_find, { desc = "Telescope [f]uzz [f]ind current buff" })
+
+            vim.keymap.set("n", "<leader>oc", function()
+                builtin.find_files { cwd = vim.fn.stdpath "config" }
+            end, { desc = "Telescope [o]pen [c]onfigs" })
 
         end
     },
 }
+
