@@ -16,9 +16,9 @@ return {
                             command = {"zsh"}
                         },
                         python = {
-                            command = { "python3" },  -- or { "ipython", "--no-autoindent" }
+                            command = { "ipython", "--no-autoindent" },  -- or { "python3" }
                             format = common.bracketed_paste_python,
-                            block_dividers = { "# %%", "#%%" },
+                            block_dividers = { "# %{", "# %}" },
                             env = {PYTHON_BASIC_REPL = "1"} --this is needed for python3.13 and up.
                         }
                     },
@@ -60,7 +60,7 @@ return {
                     restart_repl = "<space>rR", -- calls `IronRestart` to restart the repl
                     send_motion = "<space>sc",
                     visual_send = "<space>sc",
-                    -- send_file = "<space>sf",
+                    send_file = "<space>sf",
                     send_line = "<space>sl",
                     send_paragraph = "<space>sp",
                     send_until_cursor = "<space>su",
@@ -82,6 +82,14 @@ return {
                 },
                 ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
             })
+
+            vim.keymap.set("n", "<leader>ib", function()
+                local open  = "# %{"
+                local close = "# %}"
+                vim.api.nvim_put({ open, "", close }, "l", true, true)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("kA", true, false, true), "n", false)
+            end, { desc = "Iron [i]nsert code [b]lock" })
+
         end
     },
 }
