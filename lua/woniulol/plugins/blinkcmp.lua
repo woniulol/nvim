@@ -34,8 +34,23 @@ return {
                 nerd_font_variant = 'mono'
             },
 
-            -- (Default) Only show the documentation popup when manually triggered
-            completion = { documentation = { auto_show = false } },
+            completion = {
+                documentation = { auto_show = true },
+                keyword = { range = 'full' },
+                accept = { auto_brackets = { enabled = false }, },
+                ghost_text = { enabled = true },
+                menu = {
+                    min_width = 20,
+                    max_height = 15,
+                    auto_show = true,
+                    draw = {
+                        columns = {
+                            { "label", "label_description", gap = 1 },
+                            { "kind_icon", "kind", gap = 1 },
+                        },
+                    }
+                },
+            },
 
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
