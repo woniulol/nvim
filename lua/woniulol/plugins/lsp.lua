@@ -18,8 +18,8 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     { "lua_ls", version = "3.15.0" },
-                    -- "ty",
-                    -- "pyright",
+                    "ty",
+                    "pyright",
                     "basedpyright",
                     "rust_analyzer",
                 }
@@ -27,7 +27,7 @@ return {
             require("woniulol.plugins.lsp_config")
 
             vim.lsp.enable("lua_ls")
-            -- vim.lsp.enable("ty")
+            vim.lsp.enable("ty")
             -- vim.lsp.enable("pyright")
             vim.lsp.enable("basedpyright")
             vim.lsp.enable("rust_analyzer")
