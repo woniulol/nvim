@@ -29,6 +29,9 @@ vim.o.showmode = false
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 
+-- Highlight cursor line
+vim.o.cursorline = true
+
 -- Sync clipboard between Os and Neovim, ssh and local.
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
 vim.o.clipboard = "unnamedplus"
