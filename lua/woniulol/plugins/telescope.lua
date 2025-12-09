@@ -10,15 +10,20 @@ return {
                 cond = function()
                     return vim.fn.executable "make" == 1
                 end,
-            }
+            },
+            { "nvim-telescope/telescope-ui-select.nvim" },
         },
         config = function()
             require("telescope").setup({
                 extensions = {
-                    fzf = {}
-                }
+                    fzf = {},
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown(),
+                    },
+                },
             })
             require("telescope").load_extension("fzf")
+            require("telescope").load_extension("ui-select")
 
             local builtin = require("telescope.builtin")
 
