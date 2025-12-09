@@ -60,9 +60,6 @@ end
 vim.o.spelllang = "en_us"
 vim.o.spell = true
 
--- Decrease update time
-vim.o.updatetime = 200
-
 -- Configure how new splits should be opened
 vim.o.splitright = true
 vim.o.splitbelow = true
