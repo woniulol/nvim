@@ -4,11 +4,12 @@ return {
         lazy = true,
         name = "catppuccin",
         opts = {
-            transparent_background = true,
-            float = {
-                transparent = true, -- enable transparent floating windows
-                solid = true, -- use solid styling for floating windows, see |winborder|
-            },
+            -- transparent_background = true,
+            -- float = {
+            --     transparent = true, -- enable transparent floating windows
+            --     solid = true, -- use solid styling for floating windows, see |winborder|
+            -- },
+            flavour = "macchiato", -- latte, frappe, macchiato, mocha
             lsp_styles = {
                 underlines = {
                     errors = { "undercurl" },
@@ -42,6 +43,9 @@ return {
                 telescope = true,
                 treesitter_context = true,
                 which_key = true,
+            },
+            color_overrides = {
+                all = {},
             },
             highlight_overrides = {
                 all = function(colors)
