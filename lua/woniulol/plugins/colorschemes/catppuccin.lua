@@ -50,7 +50,7 @@ return {
                         LspReferenceText = { bg = "#c2dffe", fg = colors.base },
                         LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
                         LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
-                        CursorLine = { bg = colors.surface0 },
+                        CursorLine = { bg = colors.surface2 },
                     }
                 end,
             },
