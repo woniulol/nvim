@@ -5,11 +5,14 @@ return {
         config = function()
 
             -- Add/delete/replace surroundings (brackets, quotes, etc.)
-            --
-            -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-            -- - sd'   - [S]urround [D]elete [']quotes
-            -- - sr)'  - [S]urround [R]eplace [)] [']
-            require('mini.surround').setup()
+            require('mini.surround').setup({
+                mappings = {
+                    add = 'as',
+                    delete = 'ds',
+                    replace = 'rs',
+                },
+                n_lines = 100,
+            })
 
             -- Move line(s) in any directions.
             require('mini.move').setup()
@@ -18,7 +21,7 @@ return {
             require('mini.comment').setup({
                 options = {
                     -- Whether to ignore blank lines when commenting
-                    ignore_blank_line = false,
+                    ignore_blank_line = true,
                 }
             })
 
