@@ -7,9 +7,9 @@ return {
             -- Add/delete/replace surroundings (brackets, quotes, etc.)
             require('mini.surround').setup({
                 mappings = {
-                    add = 'as',
-                    delete = 'ds',
-                    replace = 'rs',
+                    add = '<leader>as',
+                    delete = '<leader>ds',
+                    replace = '<leader>rs',
                 },
                 n_lines = 100,
             })
