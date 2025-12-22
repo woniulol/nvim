@@ -6,7 +6,7 @@ return {
         opts = {
             -- transparent_background = true,
             -- float = {
-            --     transparent = true, -- enable transparent floating windows
+            --     transparent = false, -- enable transparent floating windows
             --     solid = true, -- use solid styling for floating windows, see |winborder|
             -- },
             flavour = "macchiato", -- latte, frappe, macchiato, mocha
@@ -45,6 +45,7 @@ return {
                 which_key = true,
                 blink_cmp = true,
             },
+            -- auto_integrations = true,
             color_overrides = {
                 all = {},
             },

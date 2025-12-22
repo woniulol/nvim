@@ -21,6 +21,9 @@ return {
                         require("telescope.themes").get_dropdown(),
                     },
                 },
+                defaults = {
+                    borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗'},
+                },
             })
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("ui-select")

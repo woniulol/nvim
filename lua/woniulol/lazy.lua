@@ -32,7 +32,7 @@ require("lazy").setup(
         require("woniulol.plugins.iron"),
     },
     {
-        ui = {border = "bold"},
+        ui = { border = "bold" },
     }
 )
 

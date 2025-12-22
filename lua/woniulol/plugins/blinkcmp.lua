@@ -1,6 +1,9 @@
 return {
     {
         'saghen/blink.cmp',
+
+        event = "VeryLazy",
+
         -- optional: provides snippets for the snippet source
         -- dependencies = { 'rafamadriz/friendly-snippets', "xzbdmw/colorful-menu.nvim" },
         dependencies = { "xzbdmw/colorful-menu.nvim" },

@@ -1,6 +1,9 @@
 return {
     {
         "neovim/nvim-lspconfig",
+
+        event = "VeryLazy",
+
         dependencies = {
             { "mason-org/mason.nvim" },
             { "mason-org/mason-lspconfig.nvim" },
@@ -11,7 +14,11 @@ return {
 
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
-            require("mason").setup({})
+            require("mason").setup({
+                ui = {
+                    border = "bold",
+                }
+            })
             require("mason-lspconfig").setup({
                 automatic_enable = {}
             })
