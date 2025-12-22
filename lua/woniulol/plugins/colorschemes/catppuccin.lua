@@ -43,6 +43,7 @@ return {
                 telescope = true,
                 treesitter_context = true,
                 which_key = true,
+                blink_cmp = true,
             },
             color_overrides = {
                 all = {},
@@ -51,9 +52,9 @@ return {
                 all = function(colors)
                     return {
                         Visual = { bg = colors.peach, fg = colors.base, style = {} },
-                        LspReferenceText = { bg = "#c2dffe", fg = colors.base },
-                        LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
-                        LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
+                        -- LspReferenceText = { bg = "#c2dffe", fg = colors.base },
+                        -- LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
+                        -- LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
                         CursorLine = { bg = colors.surface2 },
                     }
                 end,

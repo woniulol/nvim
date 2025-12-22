@@ -2,7 +2,8 @@ return {
     {
         'saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
-        dependencies = { 'rafamadriz/friendly-snippets' },
+        -- dependencies = { 'rafamadriz/friendly-snippets', "xzbdmw/colorful-menu.nvim" },
+        dependencies = { "xzbdmw/colorful-menu.nvim" },
 
         -- use a release tag to download pre-built binaries
         version = '1.*',
@@ -11,8 +12,6 @@ return {
         -- If you use nix, you can build from source using latest nightly rust with:
         -- build = 'nix run .#build-plugin',
 
-        ---@module 'blink.cmp'
-        ---@type blink.cmp.Config
         opts = {
             -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
             -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -26,7 +25,10 @@ return {
             -- C-k: Toggle signature help (if signature.enabled = true)
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
-            keymap = { preset = 'default' },
+            keymap = {
+                ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+                ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+            },
 
             appearance = {
                 -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -35,41 +37,59 @@ return {
             },
 
             completion = {
-                documentation = { auto_show = true },
+                documentation = {
+                    auto_show = true,
+                    window = {
+                        border = 'single',
+                        max_height = 50,
+                    },
+                    auto_show_delay_ms = 0,
+                },
                 keyword = { range = 'full' },
                 accept = { auto_brackets = { enabled = false }, },
                 ghost_text = { enabled = true },
                 menu = {
-                    min_width = 20,
-                    max_height = 15,
+                    -- min_width = 20,
+                    -- max_height = 50,
                     auto_show = true,
+                    auto_show_delay_ms = 0,
+                    border = "single",
                     draw = {
                         columns = {
                             { "label", "label_description", gap = 1 },
                             { "kind_icon", "kind", gap = 1 },
                         },
-                    }
+                        components = {
+                            label = {
+                                text = function(ctx)
+                                    return require("colorful-menu").blink_components_text(ctx)
+                                end,
+                                highlight = function(ctx)
+                                    return require("colorful-menu").blink_components_highlight(ctx)
+                                end,
+                            },
+                        },
+                    },
                 },
             },
 
-            -- Default list of enabled providers defined so that you can extend it
-            -- elsewhere in your config, without redefining it, due to `opts_extend`
+            cmdline = {
+                keymap = { preset = 'inherit' },
+                completion = { menu = { auto_show = true } },
+            },
+
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
                 providers = {
+                    snippets = { score_offset = 500 },
                     codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
                 },
             },
 
-            -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-            -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-            -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-            --
-            -- See the fuzzy documentation for more information
             fuzzy = { implementation = "rust" },
 
-            signature = {enabled = true}
-
+            signature = {enabled = true, window = {border = 'single'},}
         },
         opts_extend = { "sources.default" }
-    }}
+    },
+}

@@ -5,7 +5,7 @@ return {
             { "mason-org/mason.nvim" },
             { "mason-org/mason-lspconfig.nvim" },
             { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-            { "saghen/blink.cmp" },
+            -- { "saghen/blink.cmp" },
         },
         config = function()
 
@@ -106,7 +106,6 @@ return {
                 end
             })
 
-
             vim.diagnostic.config {
                 severity_sort = true,
                 float = { border = 'rounded', source = 'if_many' },
@@ -125,7 +124,7 @@ return {
                     format = function(diagnostic)
                         -- Only show the first line of the diagnostic message to virtual text.
                         local msg = diagnostic.message:match("^[^\n]+")
-                        return string.format("%s: %s", diagnostic.source or "LSP", msg)
+                        return string.format("%s", msg)
                     end,
                 },
             }
