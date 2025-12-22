@@ -7,13 +7,14 @@
 --
 -- For Alacritty, set window.option_as_alt = "Both"
 
+vim.o.encoding = "UTF-8"
 
 -- Set <space> as the leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Decrease update time
-vim.o.updatetime = 200
+vim.o.updatetime = 100
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal.
 vim.g.have_nerd_font = true
@@ -22,15 +23,43 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 
--- Status line already show the mode
-vim.o.showmode = false
-
--- Convert tabs to spaces
-vim.o.expandtab = true
+-- Indentation
+vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
+vim.o.autoindent = true
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect"})
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect"})
 
--- Highlight cursor line
-vim.o.cursorline = true
+-- Search
+vim.o.incsearch = true
+
+-- Visual Setting
+vim.o.cursorline = true         -- Highlight cursor line
+vim.o.termguicolors = true      -- Enable 24-bit RGB colors
+vim.o.signcolumn = "yes"        -- Ruler
+vim.o.colorcolumn = "100"        -- Ruler show at n char
+vim.o.showmatch = true          -- Highlight matching parenthesis
+vim.o.showmode = false          -- Status line already show the mode
+
+-- File Handling
+vim.o.backup = false            -- Don't create backup files
+vim.o.writebackup = false       -- Don't create backup files before writing
+vim.o.swapfile = false          -- Don't create swap files
+vim.o.undofile = true           -- Enable persistent undo
+vim.o.undodir = vim.fn.expand("~/.vim/undodir")     -- Undo directory
+vim.o.timeoutlen = 500          -- Key timeout duration
+vim.o.ttimeoutlen = 500         -- Key code timeout
+vim.o.autoread = true           -- Reload file if changed
+vim.o.autowrite = false         -- Don't auto write
+
+-- Behavior setting
+vim.opt.iskeyword:append("-")   -- Treat "-" as part of a word
+vim.opt.iskeyword:append("-")   -- Treat "_" as part of a word
+vim.opt.path:append("**")       -- Include files in sub directories
+vim.o.scrolloff = 20            -- Prevent cursor drop to bottom
 
 -- Sync clipboard between Os and Neovim, ssh and local.
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
@@ -67,23 +96,27 @@ vim.o.splitbelow = true
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
--- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlights on search when pressing <Esc>"})
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
+vim.keymap.set("n", "Y", "y$", { desc = "Yank to the end of line" })
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
+-- Center screen when jumping
+vim.keymap.set("n", "n", "nzzzv", { desc = "Center screen when jumping" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Center screen when jumping" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center screen when scrolling down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center screen when scrolling up" })
+
+-- Split navigation easier
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Prevent cursor drop to bottom
-vim.o.scrolloff = 20
+-- Move Lines up/down
+vim.keymap.set("n", "<M-j>", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<M-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- Shortcut to create a new [s]mall [t]erminal
 vim.keymap.set("n", "<leader>st", function()
@@ -93,3 +126,16 @@ vim.keymap.set("n", "<leader>st", function()
     vim.api.nvim_win_set_height(0, 6)
     vim.cmd("startinsert")
 end)
+
+-- Copy the full file path
+vim.keymap.set("n", "<leader>yp", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    print("file:", path)
+end)
+
+-- Tabs and buffers
+-- Default we have <leader>gt to go to the next tab and <leader>gT to go to the previous tab
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Create new tab" })
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
+

@@ -14,9 +14,6 @@ return {
                 n_lines = 100,
             })
 
-            -- Move line(s) in any directions.
-            require('mini.move').setup()
-
             -- Easy comment/uncomment code lines/block.
             require('mini.comment').setup({
                 options = {
@@ -26,7 +23,7 @@ return {
             })
 
             -- Auto pairing.
-            require("mini.pairs").setup({})
+            -- require("mini.pairs").setup({})
 
             -- Trailing spaces
             require('mini.trailspace').setup()
