@@ -35,6 +35,13 @@ return {
                 end,
             })
 
+            require("mini.splitjoin").setup({
+                mappings = { toggle = "" }
+            })
+
+            vim.keymap.set({"n", "x"},"sj", function()require("mini.splitjoin").join() end, { desc = "Join arguments" })
+            vim.keymap.set({"n", "x"},"sk", function()require("mini.splitjoin").split() end, { desc = "Split arguments" })
+
         end,
     },
 }

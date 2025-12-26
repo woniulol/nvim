@@ -57,7 +57,9 @@ return {
                         -- LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
                         -- LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
                         CursorLine = { bg = colors.surface2 },
+                        Search = { bg = "#86c5d2", fg = "#1e2030", style = {} }
                     }
+
                 end,
             },
         },

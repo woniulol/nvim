@@ -14,7 +14,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Decrease update time
-vim.o.updatetime = 100
+vim.o.updatetime = 50
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal.
 vim.g.have_nerd_font = true
@@ -60,6 +60,11 @@ vim.opt.iskeyword:append("-")   -- Treat "-" as part of a word
 vim.opt.iskeyword:append("-")   -- Treat "_" as part of a word
 vim.opt.path:append("**")       -- Include files in sub directories
 vim.o.scrolloff = 20            -- Prevent cursor drop to bottom
+
+-- Clipboard setting
+vim.keymap.set({ "x", "v" }, "p", [["_dP]], { desc = "Paste without yank" })
+vim.keymap.set({ "n", "v" }, "d", [["_d]], { desc = "Delete without yank" })
+vim.keymap.set({ "n", "x", "v"}, "x", [["_x]], { desc = "Delete without yank" })
 
 -- Sync clipboard between Os and Neovim, ssh and local.
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494

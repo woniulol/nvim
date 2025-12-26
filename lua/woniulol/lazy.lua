@@ -30,6 +30,7 @@ require("lazy").setup(
         require("woniulol.plugins.gitsigns"),
         require("woniulol.plugins.lazygit"),
         require("woniulol.plugins.iron"),
+        require("woniulol.plugins.harpoon"),
     },
     {
         ui = { border = "bold" },
