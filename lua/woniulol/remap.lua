@@ -30,41 +30,41 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.autoindent = true
-vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect"})
-vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect"})
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Search
 vim.o.incsearch = true
 
 -- Visual Setting
-vim.o.cursorline = true         -- Highlight cursor line
-vim.o.termguicolors = true      -- Enable 24-bit RGB colors
-vim.o.signcolumn = "yes"        -- Ruler
-vim.o.colorcolumn = "100"        -- Ruler show at n char
-vim.o.showmatch = true          -- Highlight matching parenthesis
-vim.o.showmode = false          -- Status line already show the mode
+vim.o.cursorline = true    -- Highlight cursor line
+vim.o.termguicolors = true -- Enable 24-bit RGB colors
+vim.o.signcolumn = "yes"   -- Ruler
+vim.o.colorcolumn = "100"  -- Ruler show at n char
+vim.o.showmatch = true     -- Highlight matching parenthesis
+vim.o.showmode = false     -- Status line already show the mode
 
 -- File Handling
-vim.o.backup = false            -- Don't create backup files
-vim.o.writebackup = false       -- Don't create backup files before writing
-vim.o.swapfile = false          -- Don't create swap files
-vim.o.undofile = true           -- Enable persistent undo
-vim.o.undodir = vim.fn.expand("~/.vim/undodir")     -- Undo directory
-vim.o.timeoutlen = 500          -- Key timeout duration
-vim.o.ttimeoutlen = 500         -- Key code timeout
-vim.o.autoread = true           -- Reload file if changed
-vim.o.autowrite = false         -- Don't auto write
+vim.o.backup = false                            -- Don't create backup files
+vim.o.writebackup = false                       -- Don't create backup files before writing
+vim.o.swapfile = false                          -- Don't create swap files
+vim.o.undofile = true                           -- Enable persistent undo
+vim.o.undodir = vim.fn.expand("~/.vim/undodir") -- Undo directory
+vim.o.timeoutlen = 500                          -- Key timeout duration
+vim.o.ttimeoutlen = 500                         -- Key code timeout
+vim.o.autoread = true                           -- Reload file if changed
+vim.o.autowrite = false                         -- Don't auto write
 
 -- Behavior setting
-vim.opt.iskeyword:append("-")   -- Treat "-" as part of a word
-vim.opt.iskeyword:append("-")   -- Treat "_" as part of a word
-vim.opt.path:append("**")       -- Include files in sub directories
-vim.o.scrolloff = 20            -- Prevent cursor drop to bottom
+vim.opt.iskeyword:append("-") -- Treat "-" as part of a word
+vim.opt.iskeyword:append("-") -- Treat "_" as part of a word
+vim.opt.path:append("**")     -- Include files in sub directories
+vim.o.scrolloff = 20          -- Prevent cursor drop to bottom
 
 -- Clipboard setting
 vim.keymap.set({ "x", "v" }, "p", [["_dP]], { desc = "Paste without yank" })
 vim.keymap.set({ "n", "v" }, "d", [["_d]], { desc = "Delete without yank" })
-vim.keymap.set({ "n", "x", "v"}, "x", [["_x]], { desc = "Delete without yank" })
+vim.keymap.set({ "n", "x", "v" }, "x", [["_x]], { desc = "Delete without yank" })
 
 -- Sync clipboard between Os and Neovim, ssh and local.
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
@@ -101,7 +101,7 @@ vim.o.splitbelow = true
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlights on search when pressing <Esc>"})
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlights on search when pressing <Esc>" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to the end of line" })
 
@@ -144,3 +144,5 @@ end)
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Create new tab" })
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
 
+-- Lsp formatting
+vim.keymap.set("n", "<leader>fmt", vim.lsp.buf.format)

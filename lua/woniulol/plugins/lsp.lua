@@ -1,9 +1,6 @@
 return {
     {
         "neovim/nvim-lspconfig",
-
-        event = "VeryLazy",
-
         dependencies = {
             { "mason-org/mason.nvim" },
             { "mason-org/mason-lspconfig.nvim" },
@@ -11,7 +8,6 @@ return {
             -- { "saghen/blink.cmp" },
         },
         config = function()
-
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
             require("mason").setup({
@@ -29,12 +25,14 @@ return {
                     "pyright",
                     "basedpyright",
                     "rust_analyzer",
+                    "ruff",
                 }
             })
             require("woniulol.plugins.lsp_config")
 
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("ty")
+            vim.lsp.enable("ruff")
             -- vim.lsp.enable("pyright")
             vim.lsp.enable("basedpyright")
             vim.lsp.enable("rust_analyzer")
@@ -84,6 +82,15 @@ return {
                     -- the definition of its *type*, not where it was *defined*.
                     map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
+                    -- Format file when saving.
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        buffer = event.buf,
+                        group = "lsp-attach",
+                        callback = function()
+                            vim.lsp.buf.format({ async = false })
+                        end,
+                    })
+
                     -- The following two autocommands are used to highlight references of the
                     -- word under your cursor when your cursor rests there for a little while.
                     --    See `:help CursorHold` for information about when this is executed
@@ -109,7 +116,6 @@ return {
                             vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
                         end,
                     })
-
                 end
             })
 

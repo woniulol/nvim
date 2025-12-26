@@ -26,7 +26,7 @@ return {
                     },
                 },
                 defaults = {
-                    borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗'},
+                    borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
                     mappings = {
                         i = {
                             ["<C-k>"] = actions.move_selection_previous,
@@ -40,14 +40,17 @@ return {
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
 
-            vim.keymap.set("n", "<leader>d", builtin.diagnostics, { desc = "Telescope [f]ind [d]iagnostics" })
+            vim.keymap.set("n", "<leader>d", function()
+                builtin.diagnostics({ layout_strategy = "vertical" })
+            end, { desc = "Telescope [d]iagnostics" })
             vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Telescope [f]ind [h]elp" })
             vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "Telescope [c]heck [s]pell" })
             vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Telescope [o]pen [b]uffers" })
             vim.keymap.set("n", "<leader>of", builtin.find_files, { desc = "Telescope [o]pen [f]iles" })
             vim.keymap.set("n", "<leader>ok", builtin.keymaps, { desc = "Telescope [o]pen [k]eymaps" })
             vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
-            vim.keymap.set("n", "<leader>ffb", builtin.current_buffer_fuzzy_find, { desc = "Telescope [f]uzz [f]ind current buff" })
+            vim.keymap.set("n", "<leader>ffb", builtin.current_buffer_fuzzy_find,
+                { desc = "Telescope [f]uzz [f]ind current buff" })
 
             vim.keymap.set("v", "<leader>ow", function()
                 vim.cmd("normal! y")
@@ -60,8 +63,6 @@ return {
             vim.keymap.set("n", "<leader>oc", function()
                 builtin.find_files { cwd = vim.fn.stdpath "config" }
             end, { desc = "Telescope [o]pen [c]onfigs" })
-
         end
     },
 }
-
