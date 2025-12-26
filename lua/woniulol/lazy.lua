@@ -31,7 +31,6 @@ require("lazy").setup(
         require("woniulol.plugins.lazygit"),
         require("woniulol.plugins.iron"),
         require("woniulol.plugins.harpoon"),
-        require("woniulol.plugins.fugitive"),
     },
     {
         ui = { border = "bold" },
