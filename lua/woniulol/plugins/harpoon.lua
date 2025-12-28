@@ -7,10 +7,10 @@ return {
             local harpoon = require('harpoon')
             harpoon:setup({
                 global_settings =
-                    {
-                        save_on_toggle = true,
-                        save_on_change = true,
-                    },
+                {
+                    save_on_toggle = true,
+                    save_on_change = true,
+                },
             })
 
             vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
@@ -27,7 +27,6 @@ return {
 
             local harpoon_extensions = require("harpoon.extensions")
             harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
-
         end
     }
 }

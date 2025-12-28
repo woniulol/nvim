@@ -25,7 +25,7 @@ require("lazy").setup(
         require("woniulol.plugins.blinkcmp"),
         require("woniulol.plugins.todocomments"),
         require("woniulol.plugins.mininvim"),
-        require("woniulol.plugins.smearcursor"),
+        -- require("woniulol.plugins.smearcursor"),
         require("woniulol.plugins.markview"),
         require("woniulol.plugins.gitsigns"),
         require("woniulol.plugins.lazygit"),
@@ -36,4 +36,3 @@ require("lazy").setup(
         ui = { border = "bold" },
     }
 )
-

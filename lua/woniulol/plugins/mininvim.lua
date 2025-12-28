@@ -3,7 +3,6 @@ return {
         -- Collection of various small independent plugins/modules
         'echasnovski/mini.nvim',
         config = function()
-
             -- Add/delete/replace surroundings (brackets, quotes, etc.)
             require('mini.surround').setup({
                 mappings = {
@@ -39,9 +38,10 @@ return {
                 mappings = { toggle = "" }
             })
 
-            vim.keymap.set({"n", "x"},"sj", function()require("mini.splitjoin").join() end, { desc = "Join arguments" })
-            vim.keymap.set({"n", "x"},"sk", function()require("mini.splitjoin").split() end, { desc = "Split arguments" })
-
+            vim.keymap.set({ "n", "x" }, "sj", function() require("mini.splitjoin").join() end,
+                { desc = "Join arguments" })
+            vim.keymap.set({ "n", "x" }, "sk", function() require("mini.splitjoin").split() end,
+                { desc = "Split arguments" })
         end,
     },
 }

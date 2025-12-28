@@ -14,13 +14,13 @@ return {
                         sh = {
                             -- Can be a table or a function that
                             -- returns a table (see below)
-                            command = {"zsh"}
+                            command = { "zsh" }
                         },
                         python = {
-                            command = { "ipython", "--no-autoindent" },  -- or { "python3" }
+                            command = { "ipython", "--no-autoindent" }, -- or { "python3" }
                             format = common.bracketed_paste_python,
                             block_dividers = { "# %{", "# %}" },
-                            env = {PYTHON_BASIC_REPL = "1"} --this is needed for python3.13 and up.
+                            env = { PYTHON_BASIC_REPL = "1" } --this is needed for python3.13 and up.
                         }
                     },
                     -- set the file type of the newly created repl to ft
@@ -90,7 +90,6 @@ return {
                 vim.api.nvim_put({ open, "", close }, "l", true, true)
                 vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("kA", true, false, true), "n", false)
             end, { desc = "Iron [i]nsert code [b]lock" })
-
         end
     },
 }

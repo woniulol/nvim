@@ -119,6 +119,11 @@ return {
                 end
             })
 
+            vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "bold" }) end, { desc = "Add border" })
+
+
+            -- vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+
             vim.diagnostic.config {
                 severity_sort = true,
                 float = { border = 'rounded', source = 'if_many' },

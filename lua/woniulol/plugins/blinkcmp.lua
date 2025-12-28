@@ -59,8 +59,8 @@ return {
                     border = "single",
                     draw = {
                         columns = {
-                            { "label", "label_description", gap = 1 },
-                            { "kind_icon", "kind", gap = 1 },
+                            { "label",     "label_description", gap = 1 },
+                            { "kind_icon", "kind",              gap = 1 },
                         },
                         components = {
                             label = {
@@ -91,7 +91,7 @@ return {
 
             fuzzy = { implementation = "rust" },
 
-            signature = {enabled = true, window = {border = 'single'},}
+            signature = { enabled = true, window = { border = 'single' }, }
         },
         opts_extend = { "sources.default" }
     },

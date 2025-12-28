@@ -7,7 +7,7 @@ return {
             require('lualine').setup({
 
                 icons_enabled = true,
-                options ={
+                options = {
                     component_separators = { left = '|', right = '|' },
                     section_separators = { left = '', right = '' },
                 }

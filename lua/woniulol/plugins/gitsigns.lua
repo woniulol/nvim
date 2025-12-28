@@ -13,7 +13,7 @@ return {
                     changedelete = { text = '~' },
                 },
 
-               preview_config = {
+                preview_config = {
                     border = 'bold',
                 },
 
@@ -25,15 +25,17 @@ return {
 
                     map("n", "<leader>gph", gs.preview_hunk_inline, "Gitsigns [p]review [h]unk")
 
-                    map("n", "<leader>gsh", gs.stage_hunk, "Gitsigns [s]stage [h]unk")  -- Hunk level stage or non-stage
+                    map("n", "<leader>gsh", gs.stage_hunk, "Gitsigns [s]stage [h]unk") -- Hunk level stage or non-stage
                     map("n", "<leader>grh", gs.reset_hunk, "Gitsigns [r]eset [h]unk")  -- Non-stage hunk reset
 
-                    map("v", "<leader>gsh", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })end, "Gitsigns [s]stage [h]unk")  -- Hunk level stage or non-stage
-                    map("v", "<leader>grh", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })end, "Gitsigns [r]eset [h]unk")  -- Non-stage hunk reset
+                    map("v", "<leader>gsh", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+                        "Gitsigns [s]stage [h]unk")                                               -- Hunk level stage or non-stage
+                    map("v", "<leader>grh", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+                        "Gitsigns [r]eset [h]unk")                                                -- Non-stage hunk reset
 
-                    map("n", "<leader>gsb", gs.stage_buffer, "Gitsigns [s]stage [b]uffer")  -- Buffer level stage
-                    map("n", "<leader>gub", gs.reset_buffer_index, "Gitsigns [u]nstage [b]uffer")  -- Buffer level non-stage
-                    map("n", "<leader>grb", gs.reset_buffer, "Gitsigns [r]eset [b]uffer")  -- Buffer level reset hunk
+                    map("n", "<leader>gsb", gs.stage_buffer, "Gitsigns [s]stage [b]uffer")        -- Buffer level stage
+                    map("n", "<leader>gub", gs.reset_buffer_index, "Gitsigns [u]nstage [b]uffer") -- Buffer level non-stage
+                    map("n", "<leader>grb", gs.reset_buffer, "Gitsigns [r]eset [b]uffer")         -- Buffer level reset hunk
 
                     map("n", "<leader>gbl", function() gs.blame_line({ full = true }) end, "Gitsigns [b]lame [l]ine")
                     map("n", "<leader>gB", gs.toggle_current_line_blame, "Gitsigns [b]lame [l]ine")
@@ -50,5 +52,3 @@ return {
         end
     },
 }
-
-

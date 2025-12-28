@@ -4,12 +4,12 @@ return {
         lazy = true,
         name = "catppuccin",
         opts = {
-            -- transparent_background = true,
-            -- float = {
-            --     transparent = false, -- enable transparent floating windows
-            --     solid = true, -- use solid styling for floating windows, see |winborder|
-            -- },
-            flavour = "macchiato", -- latte, frappe, macchiato, mocha
+            transparent_background = true,
+            float = {
+                transparent = true, -- enable transparent floating windows
+                -- solid = true,        -- use solid styling for floating windows, see |winborder|
+            },
+            flavour = "mocha", -- latte, frappe, macchiato, mocha
             lsp_styles = {
                 underlines = {
                     errors = { "undercurl" },
@@ -57,9 +57,9 @@ return {
                         -- LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
                         -- LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
                         CursorLine = { bg = colors.surface2 },
-                        Search = { bg = "#86c5d2", fg = "#1e2030", style = {} }
+                        Search = { bg = "#86c5d2", fg = "#1e2030", style = {} },
+                        FloatBorder = { fg = colors.blue },
                     }
-
                 end,
             },
         },
