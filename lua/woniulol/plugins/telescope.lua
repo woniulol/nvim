@@ -33,6 +33,7 @@ return {
                             ["<C-j>"] = actions.move_selection_next,
                         },
                     },
+                    file_ignore_patterns = { ".git/" },
                 },
 
             })
@@ -46,7 +47,9 @@ return {
             vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Telescope [f]ind [h]elp" })
             vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "Telescope [c]heck [s]pell" })
             vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Telescope [o]pen [b]uffers" })
-            vim.keymap.set("n", "<leader>of", builtin.find_files, { desc = "Telescope [o]pen [f]iles" })
+            vim.keymap.set("n", "<leader>of",
+                function() builtin.find_files({ hidden = true }) end,
+                { desc = "Telescope [o]pen [f]iles" })
             vim.keymap.set("n", "<leader>ok", builtin.keymaps, { desc = "Telescope [o]pen [k]eymaps" })
             vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
             vim.keymap.set("n", "<leader>ffb", builtin.current_buffer_fuzzy_find,
