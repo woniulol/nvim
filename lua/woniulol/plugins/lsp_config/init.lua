@@ -1,4 +1,5 @@
 require("woniulol.plugins.lsp_config.lua_ls")
+require("woniulol.plugins.lsp_config.prettierd")
 require("woniulol.plugins.lsp_config.ty")
 require("woniulol.plugins.lsp_config.pyright")
 require("woniulol.plugins.lsp_config.basedpyright")

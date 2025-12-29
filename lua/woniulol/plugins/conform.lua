@@ -1,6 +1,6 @@
 return {
     {
-        'stevearc/conform.nvim',
+        "stevearc/conform.nvim",
         config = function()
             require("conform").setup({
                 format_on_save = {
@@ -10,8 +10,6 @@ return {
                 },
                 formatters_by_ft = {
                     markdown = { "prettierd" },
-                    python = { "ruff" },
-                    lua = { "stylua" },
                 },
             })
         end,

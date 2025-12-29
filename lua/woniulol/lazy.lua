@@ -14,27 +14,24 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
-    {
-        require("woniulol.plugins.colorschemes"),
-        require("woniulol.plugins.telescope"),
-        require("woniulol.plugins.treesitter"),
-        require("woniulol.plugins.lsp"),
-        require("woniulol.plugins.windsurf"),
-        require("woniulol.plugins.lualine"),
-        require("woniulol.plugins.blinkcmp"),
-        require("woniulol.plugins.todocomments"),
-        require("woniulol.plugins.mininvim"),
-        require("woniulol.plugins.smearcursor"),
-        require("woniulol.plugins.rendermarkdown"),
-        require("woniulol.plugins.conform"),
-        require("woniulol.plugins.gitsigns"),
-        require("woniulol.plugins.lazygit"),
-        require("woniulol.plugins.iron"),
-        require("woniulol.plugins.harpoon"),
-        require("woniulol.plugins.autopairs"),
-    },
-    {
-        ui = { border = "bold" },
-    }
-)
+require("lazy").setup({
+    require("woniulol.plugins.colorschemes"),
+    require("woniulol.plugins.telescope"),
+    require("woniulol.plugins.treesitter"),
+    require("woniulol.plugins.lsp"),
+    require("woniulol.plugins.windsurf"),
+    require("woniulol.plugins.lualine"),
+    require("woniulol.plugins.blinkcmp"),
+    require("woniulol.plugins.todocomments"),
+    require("woniulol.plugins.mininvim"),
+    require("woniulol.plugins.smearcursor"),
+    require("woniulol.plugins.rendermarkdown"),
+    require("woniulol.plugins.conform"),
+    require("woniulol.plugins.gitsigns"),
+    require("woniulol.plugins.lazygit"),
+    require("woniulol.plugins.iron"),
+    require("woniulol.plugins.harpoon"),
+    require("woniulol.plugins.autopairs"),
+}, {
+    ui = { border = "bold" },
+})
