@@ -22,17 +22,18 @@ return {
             })
 
             -- Auto pairing.
+            -- Replaced by nvim-autopairs
             -- require("mini.pairs").setup({})
 
             -- Trailing spaces
-            require('mini.trailspace').setup()
-
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*",
-                callback = function()
-                    require("mini.trailspace").trim()
-                end,
-            })
+            -- Handled by LSP format operation
+            -- require('mini.trailspace').setup()
+            -- vim.api.nvim_create_autocmd("BufWritePre", {
+            --     pattern = "*",
+            --     callback = function()
+            --         require("mini.trailspace").trim()
+            --     end,
+            -- })
 
             require("mini.splitjoin").setup({
                 mappings = { toggle = "" }

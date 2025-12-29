@@ -83,13 +83,14 @@ return {
                     map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
                     -- Format file when saving.
-                    vim.api.nvim_create_autocmd("BufWritePre", {
-                        buffer = event.buf,
-                        group = "lsp-attach",
-                        callback = function()
-                            vim.lsp.buf.format({ async = false })
-                        end,
-                    })
+                    -- Disabled as it makes :wq a bit laggy.
+                    -- vim.api.nvim_create_autocmd("BufWritePre", {
+                    --     buffer = event.buf,
+                    --     group = "lsp-attach",
+                    --     callback = function()
+                    --         vim.lsp.buf.format({ async = false })
+                    --     end,
+                    -- })
 
                     -- The following two autocommands are used to highlight references of the
                     -- word under your cursor when your cursor rests there for a little while.
@@ -97,7 +98,7 @@ return {
                     --
                     -- When you move your cursor, the highlights will be cleared (the second autocommand).
                     local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
-                    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                    vim.api.nvim_create_autocmd({ 'CursorHold' }, {
                         buffer = event.buf,
                         group = highlight_augroup,
                         callback = vim.lsp.buf.document_highlight,
@@ -120,9 +121,6 @@ return {
             })
 
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "bold" }) end, { desc = "Add border" })
-
-
-            -- vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
             vim.diagnostic.config {
                 severity_sort = true,
