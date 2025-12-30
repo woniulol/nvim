@@ -32,6 +32,9 @@ require("lazy").setup({
     require("woniulol.plugins.iron"),
     require("woniulol.plugins.harpoon"),
     require("woniulol.plugins.autopairs"),
+    require("woniulol.plugins.indentblankline"),
+    require("woniulol.plugins.illuminate"),
+    require("woniulol.plugins.visualwhitespace"),
 }, {
     ui = { border = "bold" },
 })

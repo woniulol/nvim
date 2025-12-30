@@ -81,53 +81,10 @@ return {
                     -- Fuzzy find all the symbols in your current workspace.
                     -- Similar to document symbols, except searches over your entire project.
                     map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
-
                     -- Jump to the type of the word under your cursor.
                     -- Useful when you're not sure what type a variable is and you want to see
                     -- the definition of its *type*, not where it was *defined*.
                     map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
-
-                    -- Format file when saving.
-                    -- Disabled as it makes :wq a bit laggy.
-                    -- vim.api.nvim_create_autocmd("BufWritePre", {
-                    --     buffer = event.buf,
-                    --     group = "lsp-attach",
-                    --     callback = function()
-                    --         vim.lsp.buf.format({ async = false })
-                    --     end,
-                    -- })
-
-                    -- The following two autocommands are used to highlight references of the
-                    -- word under your cursor when your cursor rests there for a little while.
-                    --    See `:help CursorHold` for information about when this is executed
-                    --
-                    -- When you move your cursor, the highlights will be cleared (the second autocommand).
-                    local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
-
-                    local client = vim.lsp.get_client_by_id(event.data.client_id)
-                    if not client.server_capabilities.documentHighlightProvider then
-                        return
-                    end
-
-                    vim.api.nvim_create_autocmd({ "CursorHold" }, {
-                        buffer = event.buf,
-                        group = highlight_augroup,
-                        callback = vim.lsp.buf.document_highlight,
-                    })
-
-                    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-                        buffer = event.buf,
-                        group = highlight_augroup,
-                        callback = vim.lsp.buf.clear_references,
-                    })
-
-                    vim.api.nvim_create_autocmd("LspDetach", {
-                        group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
-                        callback = function(event2)
-                            vim.lsp.buf.clear_references()
-                            vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
-                        end,
-                    })
                 end,
             })
 

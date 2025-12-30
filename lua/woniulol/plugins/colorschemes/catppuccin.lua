@@ -29,7 +29,7 @@ return {
                 gitsigns = true,
                 headlines = true,
                 illuminate = true,
-                indent_blankline = { enabled = true },
+                indent_blankline = { enabled = true, colored_indent_levels = true, },
                 leap = true,
                 lsp_trouble = true,
                 mason = true,
@@ -52,11 +52,11 @@ return {
             highlight_overrides = {
                 all = function(colors)
                     return {
-                        Visual = { bg = colors.peach, fg = colors.base, style = {} },
+                        Visual = { style = {} },
                         -- LspReferenceText = { bg = "#c2dffe", fg = colors.base },
                         -- LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
                         -- LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
-                        CursorLine = { bg = colors.surface2 },
+                        CursorLine = { bg = colors.surface1 },
                         Search = { bg = "#86c5d2", fg = "#1e2030", style = {} },
                         FloatBorder = { fg = colors.blue },
                     }
