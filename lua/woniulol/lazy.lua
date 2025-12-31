@@ -35,6 +35,7 @@ require("lazy").setup({
     require("woniulol.plugins.indentblankline"),
     require("woniulol.plugins.illuminate"),
     require("woniulol.plugins.visualwhitespace"),
+    require("woniulol.plugins.whichkey"),
 }, {
     ui = { border = "bold" },
 })

@@ -43,29 +43,29 @@ return {
 
             vim.keymap.set("n", "<leader>d", function()
                 builtin.diagnostics({ layout_strategy = "vertical" })
-            end, { desc = "Telescope [d]iagnostics" })
-            vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Telescope [f]ind [h]elp" })
-            vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "Telescope [c]heck [s]pell" })
-            vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Telescope [o]pen [b]uffers" })
+            end, { desc = "Telescope: [d]iagnostics" })
+            vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope: [f]ind [h]elp" })
+            vim.keymap.set("n", "<leader>cs", builtin.spell_suggest, { desc = "Telescope: [c]heck [s]pell" })
+            vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Telescope: [o]pen [b]uffers" })
             vim.keymap.set("n", "<leader>of",
                 function() builtin.find_files({ hidden = true }) end,
-                { desc = "Telescope [o]pen [f]iles" })
-            vim.keymap.set("n", "<leader>ok", builtin.keymaps, { desc = "Telescope [o]pen [k]eymaps" })
-            vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "Telescope [l]ive [g]rep" })
+                { desc = "Telescope: [o]pen [f]iles" })
+            vim.keymap.set("n", "<leader>ok", builtin.keymaps, { desc = "Telescope: [o]pen [k]eymaps" })
+            vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "Telescope: [l]ive [g]rep" })
             vim.keymap.set("n", "<leader>ffb", builtin.current_buffer_fuzzy_find,
-                { desc = "Telescope [f]uzz [f]ind current buff" })
+                { desc = "Telescope: [f]uzz [f]ind current [b]uff" })
 
-            vim.keymap.set("v", "<leader>ow", function()
+            vim.keymap.set("v", "<leader>fw", function()
                 vim.cmd("normal! y")
                 local word = vim.fn.getreg([["]])
                 vim.fn.setreg("/", word)
                 vim.o.hlsearch = true
                 builtin.grep_string({ search = word })
-            end, { desc = "Find connected words under cursor" })
+            end, { desc = "Telescope: [f]ind current [w]ords" })
 
             vim.keymap.set("n", "<leader>oc", function()
                 builtin.find_files { cwd = vim.fn.stdpath "config" }
-            end, { desc = "Telescope [o]pen [c]onfigs" })
+            end, { desc = "Telescope: [o]pen [c]onfigs" })
         end
     },
 }
