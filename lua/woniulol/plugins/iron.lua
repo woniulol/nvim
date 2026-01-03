@@ -1,7 +1,7 @@
 return {
     {
         "Vigemus/iron.nvim",
-        event = "VeryLazy",
+        event = { "BufEnter *.py" },
         config = function()
             local view = require("iron.view")
             local common = require("iron.fts.common")

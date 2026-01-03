@@ -1,6 +1,7 @@
 return {
     {
         "RRethy/vim-illuminate",
+        event = "VeryLazy",
         config = function()
             vim.keymap.set(
                 "n",
