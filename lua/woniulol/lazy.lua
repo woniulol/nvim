@@ -36,6 +36,7 @@ require("lazy").setup({
     require("woniulol.plugins.illuminate"),
     require("woniulol.plugins.visualwhitespace"),
     require("woniulol.plugins.whichkey"),
+    require("woniulol.plugins.neoscroll"),
 }, {
     ui = { border = "bold" },
 })
