@@ -35,8 +35,13 @@ require("lazy").setup({
     require("woniulol.plugins.indentblankline"),
     require("woniulol.plugins.illuminate"),
     require("woniulol.plugins.visualwhitespace"),
-    require("woniulol.plugins.whichkey"),
-    require("woniulol.plugins.neoscroll"),
+
+    -- Good to have.
+    -- require("woniulol.plugins.whichkey"),
+
+    -- Poor performance on ssh server.
+    -- require("woniulol.plugins.neoscroll"),
+
 }, {
     ui = { border = "bold" },
 })

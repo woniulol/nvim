@@ -52,7 +52,7 @@ return {
             highlight_overrides = {
                 all = function(colors)
                     return {
-                        Visual = { style = {} },
+                        Visual = { bg = colors.surface1, style = {} },
                         -- LspReferenceText = { bg = "#c2dffe", fg = colors.base },
                         -- LspReferenceRead  = { bg = "#c2dffe", fg = colors.base },
                         -- LspReferenceWrite = { bg = "#c2dffe", fg = colors.base },
