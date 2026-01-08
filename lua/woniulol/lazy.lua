@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     require("woniulol.plugins.colorschemes"),
+    require("woniulol.plugins.dashboard"),
     require("woniulol.plugins.telescope"),
     require("woniulol.plugins.treesitter"),
     require("woniulol.plugins.lsp"),
