@@ -25,7 +25,6 @@ require("lazy").setup({
     require("woniulol.plugins.blinkcmp"),
     require("woniulol.plugins.todocomments"),
     require("woniulol.plugins.mininvim"),
-    require("woniulol.plugins.smearcursor"),
     require("woniulol.plugins.rendermarkdown"),
     require("woniulol.plugins.conform"),
     require("woniulol.plugins.gitsigns"),
@@ -36,6 +35,10 @@ require("lazy").setup({
     require("woniulol.plugins.indentblankline"),
     require("woniulol.plugins.illuminate"),
     require("woniulol.plugins.visualwhitespace"),
+    require("woniulol.plugins.yazi"),
+
+    -- Replaced by terminal emulator.
+    -- require("woniulol.plugins.smearcursor"),
 
     -- Good to have.
     -- require("woniulol.plugins.whichkey"),
