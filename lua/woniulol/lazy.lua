@@ -14,38 +14,41 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    require("woniulol.plugins.colorschemes"),
-    require("woniulol.plugins.dashboard"),
-    require("woniulol.plugins.telescope"),
-    require("woniulol.plugins.treesitter"),
-    require("woniulol.plugins.lsp"),
-    require("woniulol.plugins.windsurf"),
-    require("woniulol.plugins.lualine"),
-    require("woniulol.plugins.blinkcmp"),
-    require("woniulol.plugins.todocomments"),
-    require("woniulol.plugins.mininvim"),
-    require("woniulol.plugins.rendermarkdown"),
-    require("woniulol.plugins.conform"),
-    require("woniulol.plugins.gitsigns"),
-    require("woniulol.plugins.lazygit"),
-    require("woniulol.plugins.iron"),
-    require("woniulol.plugins.harpoon"),
-    require("woniulol.plugins.autopairs"),
-    require("woniulol.plugins.indentblankline"),
-    require("woniulol.plugins.illuminate"),
-    require("woniulol.plugins.visualwhitespace"),
-    require("woniulol.plugins.yazi"),
+require("lazy").setup(
+    {
+        require("woniulol.plugins.colorschemes"),
+        require("woniulol.plugins.dashboard"),
+        require("woniulol.plugins.telescope"),
+        require("woniulol.plugins.treesitter"),
+        require("woniulol.plugins.lsp"),
+        require("woniulol.plugins.windsurf"),
+        require("woniulol.plugins.lualine"),
+        require("woniulol.plugins.blinkcmp"),
+        require("woniulol.plugins.todocomments"),
+        require("woniulol.plugins.mininvim"),
+        require("woniulol.plugins.rendermarkdown"),
+        require("woniulol.plugins.conform"),
+        require("woniulol.plugins.gitsigns"),
+        require("woniulol.plugins.lazygit"),
+        require("woniulol.plugins.iron"),
+        require("woniulol.plugins.harpoon"),
+        require("woniulol.plugins.autopairs"),
+        require("woniulol.plugins.indentblankline"),
+        require("woniulol.plugins.illuminate"),
+        require("woniulol.plugins.visualwhitespace"),
+        require("woniulol.plugins.yazi"),
+        require("woniulol.plugins.fugitive"),
 
-    -- Replaced by terminal emulator.
-    -- require("woniulol.plugins.smearcursor"),
+        -- Replaced by terminal emulator.
+        -- require("woniulol.plugins.smearcursor"),
 
-    -- Good to have.
-    -- require("woniulol.plugins.whichkey"),
+        -- Good to have.
+        -- require("woniulol.plugins.whichkey"),
 
-    -- Poor performance on ssh server.
-    -- require("woniulol.plugins.neoscroll"),
+        -- Poor performance on ssh server.
+        -- require("woniulol.plugins.neoscroll"),
 
-}, {
-    ui = { border = "bold" },
-})
+    }, {
+        ui = { border = "bold" },
+    }
+)
