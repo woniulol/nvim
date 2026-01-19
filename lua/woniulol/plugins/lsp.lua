@@ -5,7 +5,7 @@ return {
             { "mason-org/mason.nvim" },
             { "mason-org/mason-lspconfig.nvim" },
             { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-            -- { "saghen/blink.cmp" },
+            { "saghen/blink.cmp" },
         },
         config = function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
@@ -41,6 +41,8 @@ return {
             vim.lsp.enable("rust_analyzer")
             vim.lsp.enable("marksman")
             vim.lsp.enable("prettierd")
+
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),

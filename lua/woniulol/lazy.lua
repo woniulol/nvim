@@ -33,11 +33,16 @@ require("lazy").setup(
         require("woniulol.plugins.iron"),
         require("woniulol.plugins.harpoon"),
         require("woniulol.plugins.autopairs"),
-        require("woniulol.plugins.indentblankline"),
         require("woniulol.plugins.illuminate"),
         require("woniulol.plugins.visualwhitespace"),
         require("woniulol.plugins.yazi"),
         require("woniulol.plugins.fugitive"),
+        require("woniulol.plugins.snacks"),
+        require("woniulol.plugins.aerial"),
+        require("woniulol.plugins.colorizer"),
+
+        -- Replace by snack.
+        -- require("woniulol.plugins.indentblankline"),
 
         -- Replaced by terminal emulator.
         -- require("woniulol.plugins.smearcursor"),
