@@ -60,7 +60,7 @@ return {
                     header = vim.split(logo, "\n"),
                     footer = { "", "     People live longer, but people love shorter." },
                     project = { enable = true, limit = 2 }, -- Somehow this is n+1.
-                    mru = { limit = 8 },
+                    mru = { limit = 6 },
                 }
             })
         end,
