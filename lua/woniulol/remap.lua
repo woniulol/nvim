@@ -146,3 +146,4 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Lsp formatting
 vim.keymap.set("n", "<leader>fmt", vim.lsp.buf.format)
+vim.opt.fixendofline = false
