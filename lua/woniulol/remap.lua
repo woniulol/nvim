@@ -51,7 +51,7 @@ vim.o.swapfile = false                          -- Don't create swap files
 vim.o.undofile = true                           -- Enable persistent undo
 vim.o.undodir = vim.fn.expand("~/.vim/undodir") -- Undo directory
 vim.o.timeoutlen = 500                          -- Key timeout duration
-vim.o.ttimeoutlen = 500                         -- Key code timeout
+vim.o.ttimeoutlen = 5                           -- Key code timeout
 vim.o.autoread = true                           -- Reload file if changed
 vim.o.autowrite = false                         -- Don't auto write
 
