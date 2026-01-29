@@ -1,3 +1,7 @@
+# 🚨 Archived Repository
+
+This repository was archived on 2026-01-29 and is integrated to https://github.com/woniulol/dotfiles
+
 # nvim
 
 Neovim config
